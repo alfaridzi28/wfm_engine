@@ -15,6 +15,7 @@ async def send(message:Request):
     try: 
         print (f"Sending message with value: {body}")
         await producer.send_and_wait(topic=KAFKA_TOPIC, value=body)
+        return body
     finally:
         await producer.stop()
 
