@@ -1,8 +1,6 @@
 from fastapi import APIRouter , Request
 from config import loop, KAFKA_BOOTSTRAP_SERVERS, KAFKA_TOPIC
 from aiokafka import AIOKafkaConsumer, AIOKafkaProducer
-import xml.etree.ElementTree as ET
-
 
 route = APIRouter()
 
