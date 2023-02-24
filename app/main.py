@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 import router
-import asyncio
+# import asyncio
 
 app = FastAPI(
     title="API WFM Engine"
