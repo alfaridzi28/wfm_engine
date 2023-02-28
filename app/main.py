@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-import router
+import app.routers as routers
 # import asyncio
 
 app = FastAPI(
@@ -11,5 +11,5 @@ async def index():
     res = "WFM Engine is started!"
     return res
 
-app.include_router(router.route)
+app.include_router(routers.route)
 # asyncio.create_task(router.consume())
