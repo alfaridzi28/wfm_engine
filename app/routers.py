@@ -24,9 +24,12 @@ async def send(message:Request):
     producer = AIOKafkaProducer(loop=loop, bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS)
     await producer.start()
     try: 
+        print (f"Sending message with topic: {KAFKA_TOPIC}")
+        print (f"Sending message with key: {key}")
         print (f"Sending message with value: {body}")
+        print (f"Sending message with partition: {partition[json_key_siteid]}")
         await producer.send_and_wait(topic=KAFKA_TOPIC, key=key, value=body, partition=partition[json_key_siteid])
-        return body
+        return KAFKA_TOPIC, key, body, partition[json_key_siteid]
     finally:
         await producer.stop()
 
